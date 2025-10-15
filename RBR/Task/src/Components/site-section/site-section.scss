@@ -1,0 +1,164 @@
+/* Main container for the community section */
+.community-section {
+  padding: 20px 10px; /* Vertical and horizontal spacing */
+  text-align: center;
+  background-color: #ffffff; /* Clean white background */
+  width: 100%;
+}
+
+/* Styles for the section header (title and subtitle) */
+.section-header {
+  max-width: 600px; /* Limits the width of the header text */
+  margin: 0 auto 50px; /* Centers the header and adds space below */
+
+  h2 {
+    font-size: 2.5rem; /* Large font size for the main title */
+    font-weight: 600;
+    color: #4D4D4D; /* Dark, readable text color */
+    line-height: 1.3; /* Spacing between lines of the title */
+  }
+
+  p {
+    font-size: 16px;
+    color: #717171; /* Softer grey for the subtitle */
+    margin-top: 0px;
+  }
+}
+
+/* Flexbox container for the feature cards */
+.features-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the cards */
+  flex-wrap: wrap; /* Allow cards to stack on smaller screens */
+  gap: 30px; /* Space between the cards */
+  max-width: 1200px; /* Set a max-width for the container */
+  margin: 0 auto; /* Center the container itself */
+}
+
+/* Individual feature card styling */
+.feature-card {
+  background-color: #ffffff;
+  border-radius: 8px; /* Rounded corners for the cards */
+  padding: 30px 25px;
+  width: 320px; /* Define a fixed width for each card */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07); /* A subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content vertically inside the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animations */
+
+  /* A nice lift effect when the user hovers over a card */
+  &:hover {
+    transform: translateY(-10px); /* Lifts the card up slightly */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Enhances the shadow */
+  }
+
+  .icon-background {
+    background-color: #e8f5e9; /* Light green circular background for the icon */
+   
+    padding: 8px;
+    margin-bottom: 25px; /* Space between icon and title */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 45px; /* Controls the size of the icon image */
+      height: 45px;
+    }
+  }
+
+  h3 {
+    font-size: 1.8rem; /* Font size for the card's title */
+    color: #4d4d4d;
+    font-weight: 700;
+    margin-bottom: 15px; /* Space between title and description */
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #717171; /* Lighter text for the description */
+    line-height: 1.6;
+  }
+}
+
+
+/* Main container for the entire feature section */
+.feature-section {
+  padding: 30px 20px; /* Adds vertical and horizontal spacing */
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Flex container for the image and text content */
+.feature-container {
+  display: flex;
+  align-items: center; /* Vertically aligns image and text */
+  justify-content: space-between; /* Pushes image and text to opposite ends */
+  gap: 50px; /* Creates space between the image and the text block */
+  max-width: 1100px; /* Constrains the maximum width of the content */
+  margin: 0 auto; /* Centers the container on the page */
+}
+
+/* Styling for the image container */
+.feature-image {
+  flex-basis: 45%; /* Allocates 45% of the container width to the image */
+  
+  img {
+    max-width: 100%; /* Ensures the image is responsive and doesn't overflow its container */
+    height: auto; /* Maintains the image's aspect ratio */
+  }
+}
+
+/* Styling for the text content block */
+.feature-content {
+  flex-basis: 55%; /* Allocates 55% of the container width to the text content */
+
+  h2 {
+    font-size: 2.25rem; /* Large font size for the main heading */
+    font-weight: 600;
+    color: #4D4D4D; /* A dark, professional grey for the text */
+    line-height: 1.4; /* Improves readability for multi-line headings */
+    margin-bottom: 16px; /* Space between the heading and the paragraph */
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #717171; /* A lighter grey for the body text */
+    line-height: 1.6; /* Generous line spacing for easy reading */
+    margin-bottom: 32px; /* Space between the paragraph and the button */
+  }
+}
+
+/* Styling for the 'Learn More' button */
+.feature-btn {
+  background-color: #4CAF50; /* A vibrant green background */
+  color: white; /* White text for contrast */
+  padding: 14px 32px; /* Ample padding to make the button easy to click */
+  border: none; /* Removes the default browser border */
+  border-radius: 4px; /* Slightly rounded corners for a modern look */
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+
+  /* Adds a subtle interaction effect when the user hovers over the button */
+  &:hover {
+    background-color: #45a049; /* A slightly darker shade of green */
+    transform: translateY(-2px); /* Lifts the button slightly */
+  }
+}
+
+/* Responsive adjustments for screens smaller than 992px (like tablets and mobile) */
+@media (max-width: 992px) {
+  .feature-container {
+    flex-direction: column; /* Stacks the image on top of the text */
+    text-align: center; /* Centers the text content */
+  }
+
+  .feature-image {
+    margin-bottom: 30px; /* Adds space between the image and the text when stacked */
+  }
+}

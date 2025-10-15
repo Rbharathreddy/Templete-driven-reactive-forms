@@ -1,0 +1,158 @@
+
+$primary-color: #4caf50;
+$hover-color: darken($primary-color, 10%);
+$text-color: #18191f;
+$dark-bg: #263238;
+$white: #fff;
+
+
+.footer-section {
+  background: $dark-bg;
+  color: $white;
+  padding: 3rem 1rem;
+  font-family: 'Poppins', sans-serif;
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .footer-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      .footer-logo { width: 40px; height: 40px; }
+      h2 { margin: 0; font-size: 1.5rem; color: $white; }
+    }
+
+    .footer-copyright {
+      p { margin: 0.2rem 0; font-size: 0.9rem; color: lighten($white, 20%); }
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      a {
+        display: inline-flex;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: lighten($dark-bg, 10%);
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        &:hover { background: $primary-color; transform: translateY(-3px); }
+        img { width: 16px; height: 16px; filter: brightness(0) invert(1); }
+      }
+    }
+  }
+
+  .footer-links {
+    flex: 2 1 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+
+    div { min-width: 180px; }
+    h4 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: $white; }
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        margin-bottom: 0.6rem;
+        a {
+          color: lighten($white, 20%);
+          text-decoration: none;
+          font-size: 0.95rem;
+          transition: color 0.3s;
+          &:hover { color: $primary-color; }
+        }
+      }
+    }
+
+    .footer-form {
+      display: flex;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 0.5rem;
+      background: lighten($dark-bg, 5%);
+      border-radius: 8px;
+      overflow: hidden;
+
+      input {
+        flex: 1 1 auto;
+        min-width: 0;
+        border: none;
+        padding: 0.7rem 1rem;
+        background: transparent;
+        color: $white;
+        font-size: 0.9rem;
+        -webkit-appearance: none;
+        appearance: none;
+        &:focus { outline: none; }
+        &::placeholder { color: lighten($white, 30%); }
+      }
+
+      button {
+        flex: 0 0 auto;
+        background: $primary-color;
+        border: none;
+        padding: 0.7rem 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s;
+        img { width: 16px; height: 16px; filter: brightness(0) invert(1); }
+        &:hover { background: $hover-color; }
+      }
+    }
+  }
+
+  /* ---------- RESPONSIVE STYLES ---------- */
+  @media (max-width: 992px) {
+    /* ... (these styles are correct) ... */
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+    .footer-container { align-items: center; }
+    .footer-brand { align-items: center; .footer-logo-container { justify-content: center; } }
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+      div { width: 100%; max-width: 300px; }
+
+      .footer-form {
+        flex-direction: column;
+
+        input,
+        button {
+          width: 100%;
+         
+          box-sizing: border-box; 
+        }
+
+        button {
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    
+  }
+}

@@ -1,0 +1,53 @@
+.demo-section {
+  background: #f5f7fa;
+  padding: 0.1px;
+  text-align: center;
+  margin-top: 8rem;
+  padding-bottom: 2rem;
+
+  .demo-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #2d3a3a;
+    margin-bottom: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .demo-btn {
+    background: rgba(76, 175, 79, 1);
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+
+    .arrow {
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+    }
+
+    &:hover {
+      background-color: #5ca15f;
+    }
+  }
+
+  @media (max-width: 800px) {
+    h2 {
+      font-size: 2.2rem;
+    }
+    .demo-btn {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+    }
+  }
+}
