@@ -1,3 +1,117 @@
-<p>reactive works!</p>
+<div class="form-container">
+    <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+        <h2>Registration Form</h2>
 
-<h1>regeration forms</h1>
+        <!-- First & Last Name -->
+        <div class="row">
+            <div class="form-group">
+                <input type="text" placeholder="First Name" formControlName="firstName" />
+
+                <div *ngIf=" regForm.get('firstName')?.touched &&regForm.get('firstName')?.invalid" class="error">
+                    <small *ngIf="regForm.get('firstName')?.errors?.['required']">
+                        First Name is required.
+                    </small>
+
+                    <small *ngIf="regForm.get('firstName')?.errors?.['minlength']">
+                        Minimum 4 characters required.
+                    </small>
+                </div>
+            </div>
+
+            <!-- two method write logic -->
+            <div class="form-group">
+                <input type="text" placeholder="Last Name" formControlName="lastName" />
+                <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="error">
+                    <small *ngIf="f['lastName'].errors?.['required']">Last Name is required.</small>
+                    <small *ngIf="f['lastName'].errors?.['minlength']">Minimum 2 characters required.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <input type="email" placeholder="Email" formControlName="email" />
+            <div *ngIf="f['email'].touched && f['email'].invalid" class="error">
+                <small *ngIf="f['email'].errors?.['required']">Email is required.</small>
+                <small *ngIf="f['email'].errors?.['email']">Enter a valid email address.</small>
+            </div>
+        </div>
+
+        <!-- Phone & DOB -->
+        <div class="row">
+            <div class="form-group">
+                <input type="tel" placeholder="Phone Number" formControlName="phone" />
+                <div *ngIf="f['phone'].touched && f['phone'].invalid" class="error">
+                    <small *ngIf="f['phone'].errors?.['required']">Phone number is required.</small>
+                    <small *ngIf="f['phone'].errors?.['pattern']">Enter a valid 10-digit number.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="date" formControlName="dob" />
+                <div *ngIf="f['dob'].touched && f['dob'].invalid" class="error">
+                    <small>Date of Birth is required.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="gender-group">
+            <label><input type="radio" value="male" formControlName="gender" /> Male</label>
+            <label><input type="radio" value="female" formControlName="gender" /> Female</label>
+            <label><input type="radio" value="na" formControlName="gender" /> Prefer not to say</label>
+            <div *ngIf="f['gender'].touched && f['gender'].invalid" class="error">
+                <small>Please select your gender.</small>
+            </div>
+        </div>
+
+        <!-- Address -->
+        <h4>Address</h4>
+
+        <div class="form-group">
+            <input type="text" placeholder="Street Address" formControlName="address1" />
+            <div *ngIf="f['address1'].touched && f['address1'].invalid" class="error">
+                <small>Street address is required.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" placeholder="Street Address Line 2" formControlName="address2" />
+        </div>
+
+        <!-- City & Postal Code -->
+        <div class="row">
+            <div class="form-group">
+                <select formControlName="city">
+                    <option value="" disabled selected>Select City</option>
+                    <option>London</option>
+                    <option>New York</option>
+                    <option>Delhi</option>
+                    <option>Tokyo</option>
+                </select>
+                <div *ngIf="f['city'].touched && f['city'].invalid" class="error">
+                    <small>City selection is required.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" placeholder="Postal Code" formControlName="postalCode" />
+                <div *ngIf="f['postalCode'].touched && f['postalCode'].invalid" class="error">
+                    <small *ngIf="f['postalCode'].errors?.['required']">Postal code is required.</small>
+                    <small *ngIf="f['postalCode'].errors?.['pattern']">Enter a valid postal code.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Region -->
+        <div class="form-group">
+            <input type="text" placeholder="Region" formControlName="region" />
+            <div *ngIf="f['region'].touched && f['region'].invalid" class="error">
+                <small>Region is required.</small>
+            </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" [disabled]="regForm.invalid">Submit</button>
+    </form>
+</div>
