@@ -1,5 +1,5 @@
 .form-container {
-  width: 50%;
+  width: 100%;
   max-width: 520px;
   margin: 60px auto;
   background: #fff;
@@ -24,7 +24,9 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    justify-content: space-between;
+
+    gap: 18px;
 
     .row {
       display: flex;
@@ -40,7 +42,7 @@
 
     input,
     select {
-      width: 90%;
+      width: 80%;
       padding: 10px 14px;
       border: 1px solid #ccc;
       border-radius: 8px;
@@ -55,7 +57,7 @@
 
     .gender-group {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       margin: 10px 0;
       label {
         font-size: 14px;
