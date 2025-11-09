@@ -1,0 +1,55 @@
+
+
+<div class="create-task">
+  <input 
+    type="text" 
+    [(ngModel)]="newTask" 
+    placeholder="Enter task..."
+  />
+  <button (click)="CreateTask()">Create Task</button>
+</div>
+
+
+
+<h2>🎓 Student Details (Real-time Pipes Demo)</h2>
+
+<!-- Basic Field -->
+<p><b>Original Student ID:</b> {{ student.id }}</p>
+
+<!-- Applying Pipes -->
+<ul>
+  <li><b>Uppercase:</b> {{ student.name | uppercase }}</li>
+  <li><b>Lowercase:</b> {{ student.city | lowercase }}</li>
+  <li><b>Titlecase:</b> {{ student.name | titlecase }}</li>
+  <li><b>Number Pipe:</b> {{ student.marks | number: '1.2-2' }}</li>
+  <li><b>Percent Pipe:</b> {{ student.marks / 100 | percent:'1.0-3' }}</li>
+  <li><b>Currency Pipe:</b> {{ student.marks | currency:'USD':true }}</li>
+  <li><b>Date Pipe:</b> {{ student.admissionDate | date:'longDate' }}</li>
+  <li><b>JSON Pipe:</b> {{ student | json }}</li>
+  <!-- <li><b>Async Pipe (2s delay):</b> {{ studentIdPromise | async }}</li> -->
+</ul>
+
+<!-- Custom Pipe Example -->
+<p><b>Custom Pipe (Reverse Name):</b> {{ student.name | reverse | uppercase}}</p>
+
+
+<h2>Active Users</h2>
+
+<!-- ng-container filters active users -->
+<ng-container *ngFor="let user of users">
+  <ng-container *ngIf="user.active">
+    <p>{{ user.name }} ✅</p>
+  </ng-container>
+</ng-container>
+
+<hr>
+
+<h2>Inactive Users</h2>
+
+<!-- Another example using else block -->
+<ng-container *ngFor="let user of users">
+  <ng-container *ngIf="!user.active; else activeUser">
+    <p>{{ user.name }} ❌</p>
+  </ng-container>
+  <ng-template #activeUser></ng-template>
+</ng-container>

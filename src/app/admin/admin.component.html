@@ -1,0 +1,39 @@
+<p>admin works!</p>
+<div class="admin-container">
+  <form (ngSubmit)="createUser()" class="user-form">
+    <div class="form-row">
+      <input type="text" [(ngModel)]="user.name" name="name" placeholder="Enter Name" required>
+      <select [(ngModel)]="user.gender" name="gender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <select [(ngModel)]="user.plan" name="plan" required>
+        <option value="" disabled selected>Select Plan</option>
+        <option value="Monthly">Monthly</option>
+        <option value="Quarterly">Quarterly</option>
+        <option value="Yearly">Yearly</option>
+      </select>
+
+      <select [(ngModel)]="user.status" name="status" required>
+        <option value="" disabled selected>Select Status</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-create">CREATE</button>
+  </form>
+
+  <div class="user-list">
+    <div class="user-row" *ngFor="let u of users">
+      <span>{{ u.name }}</span>
+      <span>{{ u.gender }}</span>
+      <span>{{ u.plan }}</span>
+      <span>{{ u.status }}</span>
+    </div>
+  </div>
+</div>

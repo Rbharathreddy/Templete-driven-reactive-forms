@@ -1,0 +1,18 @@
+{
+  "companies": [
+    {
+      "id": "1",
+      "companyId": "789",
+      "name": "12",
+      "email": "33",
+      "mobileNumber": "33"
+    },
+    {
+      "id": 2,
+      "companyId": "123",
+      "name": "22",
+      "email": "2w323",
+      "mobileNumber": "32"
+    }
+  ]
+}

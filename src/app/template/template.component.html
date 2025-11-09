@@ -1,0 +1,171 @@
+<div class="form-container">
+  <form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
+    <h2>Registration Form</h2>
+
+    <!-- First & Last Name -->
+    <div class="row">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+          [(ngModel)]="user.firstName"
+          required
+          minlength="4"
+          #firstName="ngModel"
+        />
+        <div *ngIf="firstName.invalid && firstName.touched" class="error">
+          <small *ngIf="firstName.errors?.['required']">First Name is required.</small>
+          <small *ngIf="firstName.errors?.['minlength']">Minimum 4 characters required.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+          [(ngModel)]="user.lastName"
+          required
+          minlength="2"
+          #lastName="ngModel"
+        />
+        <div *ngIf="lastName.invalid && lastName.touched" class="error">
+          <small *ngIf="lastName.errors?.['required']">Last Name is required.</small>
+          <small *ngIf="lastName.errors?.['minlength']">Minimum 2 characters required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <input
+        type="email"
+        placeholder="Email"
+        name="email"
+        [(ngModel)]="user.email"
+        required
+        email
+        #email="ngModel"
+      />
+      <div *ngIf="email.invalid && email.touched" class="error">
+        <small *ngIf="email.errors?.['required']">Email is required.</small>
+        <small *ngIf="email.errors?.['email']">Enter a valid email address.</small>
+      </div>
+    </div>
+
+    <!-- Phone & DOB -->
+    <div class="row">
+      <div class="form-group">
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          name="phone"
+          [(ngModel)]="user.phone"
+          required
+          pattern="^[0-9]{10}$"
+          #phone="ngModel"
+        />
+        <div *ngIf="phone.invalid && phone.touched" class="error">
+          <small *ngIf="phone.errors?.['required']">Phone number is required.</small>
+          <small *ngIf="phone.errors?.['pattern']">Enter a valid 10-digit number.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="date"
+          name="dob"
+          [(ngModel)]="user.dob"
+          required
+          #dob="ngModel"
+        />
+        <div *ngIf="dob.invalid && dob.touched" class="error">
+          <small>Date of Birth is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="gender-group">
+      <label><input type="radio" name="gender" value="male" [(ngModel)]="user.gender" required #gender="ngModel" /> Male</label>
+      <label><input type="radio" name="gender" value="female" [(ngModel)]="user.gender" /> Female</label>
+      <label><input type="radio" name="gender" value="na" [(ngModel)]="user.gender" /> Prefer not to say</label>
+      <div *ngIf="gender.invalid && regForm.submitted" class="error">
+        <small>Please select your gender.</small>
+      </div>
+    </div>
+
+    <h4>Address</h4>
+
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Street Address"
+        name="address1"
+        [(ngModel)]="user.address1"
+        required
+        #address1="ngModel"
+      />
+      <div *ngIf="address1.invalid && address1.touched" class="error">
+        <small>Street address is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Street Address Line 2"
+        name="address2"
+        [(ngModel)]="user.address2"
+      />
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <select name="city" [(ngModel)]="user.city" required #city="ngModel">
+          <option value="" disabled selected>Select City</option>
+          <option>London</option>
+          <option>New York</option>
+          <option>Delhi</option>
+          <option>Tokyo</option>
+        </select>
+        <div *ngIf="city.invalid && city.touched" class="error">
+          <small>City selection is required.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Postal Code"
+          name="postalCode"
+          [(ngModel)]="user.postalCode"
+          required
+          pattern="^[0-9]{5,6}$"
+          #postalCode="ngModel"
+        />
+        <div *ngIf="postalCode.invalid && postalCode.touched" class="error">
+          <small *ngIf="postalCode.errors?.['required']">Postal code is required.</small>
+          <small *ngIf="postalCode.errors?.['pattern']">Enter a valid postal code.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Region"
+        name="region"
+        [(ngModel)]="user.region"
+        required
+        #region="ngModel"
+      />
+      <div *ngIf="region.invalid && region.touched" class="error">
+        <small>Region is required.</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="regForm.invalid">Submit</button>
+  </form>
+</div>

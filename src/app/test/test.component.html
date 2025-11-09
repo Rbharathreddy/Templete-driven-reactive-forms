@@ -1,0 +1,19 @@
+<div class="form-card">
+  <h3>{{ editMode ? 'Edit Company' : 'Add Company' }}</h3>
+
+  <form (ngSubmit)="onSubmit()">
+    <label>Company ID</label>
+    <input type="text" [(ngModel)]="company.companyId" name="companyId" required />
+
+    <label>Name</label>
+    <input type="text" [(ngModel)]="company.name" name="name" required />
+
+    <label>Email</label>
+    <input type="email" [(ngModel)]="company.email" name="email" required />
+
+    <label>Mobile Number</label>
+    <input type="text" [(ngModel)]="company.mobileNumber" name="mobileNumber" required />
+
+    <button type="submit">{{ editMode ? 'Update' : 'Submit' }}</button>
+  </form>
+</div>
