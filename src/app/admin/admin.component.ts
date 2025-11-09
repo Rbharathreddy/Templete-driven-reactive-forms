@@ -18,7 +18,7 @@ export class AdminComponent {
       this.users.push({ ...this.user });
       this.user = { name: '', gender: '', plan: '', status: '' };
     } else {
-      alert('Please fill all fields!');
+      alert('Please fill all fields in ready the podcution!');
     }
   }
 }
