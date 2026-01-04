@@ -1,0 +1,69 @@
+<!-- HEADER -->
+<nav class="navbar header">
+  <span class="header-title">TODO APP</span>
+
+  <button class="btn calendar-btn" (click)="openAdd()">
+    <i class="bi bi-calendar-event"></i>
+  </button>
+</nav>
+
+<!-- TODO LIST -->
+<div class="todo-wrapper">
+  <div class="todo-card" *ngFor="let todo of todos; let i = index">
+
+    <div>
+      <div class="todo-title">{{ todo.title }}</div>
+      <div class="todo-subtitle">{{ todo.subtitle }}</div>
+    </div>
+       <div class="todo-icons">
+      <i class="bi bi-pencil" (click)="openEdit(todo, i)"></i>
+      <i class="bi bi-trash" (click)="deleteTask(i)"></i>
+      <i class="bi bi-check-circle"></i>
+      
+    </div>
+
+  </div>
+</div>
+
+<!-- ADD TASK SCREEN -->
+<div class="add-task-screen" *ngIf="showAdd">
+
+  <div class="add-task-header">
+    <button class="back-btn" (click)="showAdd = false">
+      <i class="bi bi-arrow-left"></i>
+    </button>
+    <span>Add Task</span>
+  </div>
+
+  <div class="add-task-body">
+    <input type="text" placeholder="Title" [(ngModel)]="title" />
+    <input type="text" placeholder="Detail" [(ngModel)]="subtitle" />
+
+    <button class="add-task-btn" (click)="addTask()">ADD</button>
+  </div>
+
+</div>
+
+<!-- EDIT TASK SCREEN -->
+<div class="add-task-screen" *ngIf="showEdit">
+
+  <div class="add-task-header">
+    <button class="back-btn" (click)="closeEdit()">
+      <i class="bi bi-arrow-left"></i>
+    </button>
+    <span>Edit Task</span>
+  </div>
+
+  <div class="add-task-body">
+    <input type="text" placeholder="Title" [(ngModel)]="editTitle" />
+    <input type="text" placeholder="Detail" [(ngModel)]="editSubtitle" />
+
+    <div class="edit-btn-group">
+      <button class="update-btn" (click)="updateTask()">Update</button>
+      <button class="cancel-btn" (click)="closeEdit()">Cancel</button>
+    </div>
+  </div>
+
+</div>
+
+

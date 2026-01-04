@@ -1,0 +1,25 @@
+
+<div class="container">
+  <h2>RxJS 'of()' Operator Example</h2>
+
+  <!-- <button (click)="loadUsers()" class="btn-load">Load Users</button> -->
+
+  <table *ngIf="data1.length > 0" class="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>ADRESS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of data1">
+        <td><a [routerLink]="['/euser', u.id]">{{ u.id }}</a></td>
+        <td>{{ u.name }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{u.address}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

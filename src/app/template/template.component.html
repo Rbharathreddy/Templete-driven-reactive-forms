@@ -166,6 +166,43 @@
       </div>
     </div>
 
-    <button type="submit" [disabled]="regForm.invalid">Submit</button>
+    <button type="submit" [disabled]="regForm.invalid">Create Task</button>
   </form>
+</div>
+
+<hr />
+
+<!-- ===================== -->
+<!-- DISPLAY FETCHED USERS -->
+<!-- ===================== -->
+<h2>Submitted Users</h2>
+
+<table border="1" width="100%" *ngIf="tasks.length > 0">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>City</th>
+    <th>Region</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr *ngFor="let task of tasks">
+    <td>{{ task.firstName }}</td>
+    <td>{{ task.lastName }}</td>
+    <td>{{ task.email }}</td>
+    <td>{{ task.phone }}</td>
+    <td>{{ task.city }}</td>
+    <td>{{ task.region }}</td>
+    <td>
+      <button (click)="deleteTask(task.id)" style="background:red;color:white;border:none;padding:5px 10px;">
+        Delete
+      </button>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="tasks.length === 0">
+  <p>No data found.</p>
 </div>

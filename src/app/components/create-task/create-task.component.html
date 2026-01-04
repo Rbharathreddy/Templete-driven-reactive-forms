@@ -53,3 +53,25 @@
   </ng-container>
   <ng-template #activeUser></ng-template>
 </ng-container>
+<select [(ngModel)]="selectedState">
+  <option value="">Select State</option>
+  <option *ngFor="let s of states" [value]="s.id">{{ s.name }}</option>
+</select>
+
+<!-- ng-container to switch templates -->
+<ng-container *ngIf="selectedState; else noStateSelected">
+
+  <h3>Cities</h3>
+
+  <ul>
+    <li *ngFor="let c of getCities(selectedState)">
+      {{ c }}
+    </li>
+  </ul>
+
+</ng-container>
+
+<!-- ng-template -->
+<ng-template #noStateSelected>
+  <p style="color: gray;">Please select a state to view cities.</p>
+</ng-template>

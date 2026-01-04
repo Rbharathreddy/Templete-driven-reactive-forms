@@ -1,0 +1,101 @@
+<div class="container">
+  <h2>User Details</h2>
+
+  <form [formGroup]="usersForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="users">
+
+      <div class="user-card" *ngFor="let user of users.controls; let i = index" [formGroupName]="i">
+
+        <div class="row-header">
+          <h3>User {{ i + 1 }}</h3>
+
+          <button type="button"
+                  class="delete-btn"
+                  *ngIf="users.length > 1"
+                  (click)="removeUser(i)">
+            Delete
+          </button>
+        </div>
+
+        <!-- IMAGE -->
+        <label>Profile Image</label>
+        <input type="file" (change)="uploadImage($event, i)">
+        <img *ngIf="user.value.image" class="preview-img" [src]="user.value.image">
+
+        <!-- First & Last Name -->
+        <div class="row">
+          <div class="col">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName">
+          </div>
+          <div class="col">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName">
+          </div>
+        </div>
+
+        <!-- EMAIL -->
+        <label>Email</label>
+        <input type="email" formControlName="email">
+
+        <!-- USERNAME -->
+        <label>Username</label>
+        <div class="row">
+          <input type="text" formControlName="username" class="col">
+          <button type="button" class="pink-btn" (click)="generateUsername(i)">
+            Create Username
+          </button>
+        </div>
+
+        <!-- DOB -->
+        <label>DOB</label>
+        <input type="date" formControlName="dob">
+
+        <!-- GENDER -->
+        <label>Gender</label>
+        <div class="row-radio">
+          <label><input type="radio" value="male" formControlName="gender"> Male</label>
+          <label><input type="radio" value="female" formControlName="gender"> Female</label>
+          <label><input type="radio" value="other" formControlName="gender"> Prefer not to say</label>
+        </div>
+
+        <!-- ADDRESS -->
+        <h4>Address</h4>
+
+        <label>Street Address</label>
+        <input type="text" formControlName="street">
+
+        <div class="row">
+          <select class="col" formControlName="country">
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+          </select>
+
+          <input class="col" type="text" placeholder="City" formControlName="city">
+        </div>
+
+        <div class="row">
+          <input class="col" type="text" placeholder="Region" formControlName="region">
+          <input class="col" type="text" placeholder="Postal code" formControlName="postal">
+        </div>
+
+        <!-- SKILLS -->
+        <h4>Add Skills</h4>
+
+        <div formArrayName="skills">
+          <div *ngFor="let skill of getSkillsControl(i).controls; let j = index" class="row">
+            <input type="text" class="col" [formControlName]="j" placeholder="Add Skill...">
+            <button type="button" class="delete-btn" (click)="removeSkill(i, j)">Delete</button>
+          </div>
+        </div>
+
+        <button type="button" class="pink-btn" (click)="addSkill(i)">Add Skills</button>
+
+      </div>
+    </div>
+
+    <button type="button" class="add-btn" (click)="addUser()">+ Add Another User</button>
+
+    <button type="submit" class="submit-btn">Save All Users</button>
+  </form>
+</div>

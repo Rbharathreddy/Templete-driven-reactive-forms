@@ -1,0 +1,33 @@
+<!-- <div class="container">
+  <h2>Details Form</h2>
+
+  <form [formGroup]="detailsForm">
+
+    <label>Mobile Number</label>
+    <input formControlName="mobile" type="text" maxlength="10">
+    <small *ngIf="detailsForm.controls['mobile'].touched && detailsForm.controls['mobile'].invalid">
+      Enter valid 10-digit mobile
+    </small>
+
+    <label>PAN Number</label>
+    <input formControlName="pan" type="text" maxlength="10">
+    <small *ngIf="detailsForm.controls['pan'].touched && detailsForm.controls['pan'].invalid">
+      PAN format: ABCDE1234F
+    </small>
+
+    <button type="button" (click)="submitForm()">Submit</button>
+
+  </form>
+</div> -->
+
+<div class="container">
+  <h2>User Details</h2>
+
+  <p><strong>ID:</strong>
+    {{ user.id }}</p>
+  <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>username:</strong> {{ user.username }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+
+  <button routerLink="/euser">Back</button>
+</div>

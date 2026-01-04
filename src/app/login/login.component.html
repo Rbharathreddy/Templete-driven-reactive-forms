@@ -1,0 +1,27 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>{{ isLogin ? 'Login' : 'Sign Up' }}</h2>
+
+    <!-- LOGIN FORM -->
+    <form *ngIf="isLogin" (ngSubmit)="onLogin()">
+      <input type="email" [(ngModel)]="login.email" name="email" placeholder="Enter Email" ngModel required email>
+      <input type="password" [(ngModel)]="login.password" name="password" placeholder="Enter Password" required>
+      <button type="submit" class="btn-primary">Login</button>
+    </form>
+
+    <!-- SIGNUP FORM -->
+    <form *ngIf="!isLogin" (ngSubmit)="onSignup()">
+      <!-- <input type="text" [(ngModel)]="signup.name" name="name" placeholder="Full Name"  ngModel required minlength="6"> -->
+      <input type="email" [(ngModel)]="signup.email" name="email" placeholder="Email Address" ngModel  required email>
+      <input type="password" [(ngModel)]="signup.password" name="password" placeholder="Create Password"  ngmodel required  minlength="6">
+      <button type="submit" class="btn-primary">Sign Up</button>
+    </form>
+
+    <!-- SWITCH BUTTON -->
+    <p class="switch-text">
+      {{ isLogin ? "Don't have an account?" : "Already have an account?" }}
+      <a (click)="toggleForm()">{{ isLogin ? 'Sign Up' : 'Login' }}</a>
+    </p>
+  </div>
+</div>
+

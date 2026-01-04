@@ -1,0 +1,35 @@
+<div class="container">
+
+  <h2>Login</h2>
+
+  <form [formGroup]="loginForm">
+
+    <label>Mobile Number</label>
+    <input formControlName="mobile" type="text" maxlength="10">
+    <small *ngIf="loginForm.controls['mobile'].touched && loginForm.controls['mobile'].invalid">
+      Enter valid 10-digit mobile number
+    </small>
+
+    <label>Email</label>
+    <input formControlName="email" type="email">
+    <small *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid">
+      Enter valid email
+    </small>
+
+    <button type="button" (click)="sendOtp()">Send OTP</button>
+
+    <!-- OTP FIELD -->
+    <div *ngIf="otpVisible">
+      <label>Enter OTP</label>
+      <input formControlName="otp" type="text" maxlength="4">
+
+      <button type="button" (click)="verifyOtp()">Verify OTP</button>
+
+      <!-- SUCCESS MESSAGE -->
+      <div *ngIf="otpSuccess" class="success-msg">
+        OTP Verified Successfully! Redirecting...
+      </div>
+    </div>
+
+  </form>
+</div>

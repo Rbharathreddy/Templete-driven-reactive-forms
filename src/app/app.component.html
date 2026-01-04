@@ -1,35 +1,56 @@
-<router-outlet></router-outlet>
-<!-- <app-template></app-template> -->
- <!-- <app-reactive></app-reactive> -->
+<!-- <div class="container">
 
- <!-- <app-create-task></app-create-task>
- <app-task-list></app-task-list> -->
-
-
-
-<!-- 
-<div class="container">
-  <h2>Company Management</h2>
-
-  <button (click)="toggleForm()">
-    {{ showForm ? 'Hide Form' : 'Show Form' }}
-  </button>
-
-  <div class="popup" *ngIf="showForm">
-    <app-test
-      [editData]="companyToEdit"
-      (dataAdded)="onDataAddedOrUpdated()"
-    ></app-test>
+  <div class="header">
+    <h2>Manage Mobiles</h2>
+    <button class="btn-add" (click)="openPopup()">Add mobile</button>
   </div>
 
 
-  <app-show-data
-    [refresh]="refreshList"
-    (editCompany)="onEditCompany($event)"
-  ></app-show-data>
+  <table class="mobile-table">
+    <thead>
+      <tr>
+        <th>Mobile</th>
+        <th>Price(Rs)</th>
+        <th>RAM</th>
+        <th>Storage</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let m of mobiles; let i = index">
+        <td>{{ m.mobile }}</td>
+        <td>{{ m.price }}</td>
+        <td>{{ m.ram }}</td>
+        <td>{{ m.storage }}</td>
+        <td>
+          <button class="btn-edit" (click)="editMobile(i)">Edit</button>
+          <button class="btn-delete" (click)="deleteMobile(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal" *ngIf="showPopup">
+    <div class="modal-content">
+
+      <h3>{{ isEditMode ? 'Update Mobile' : 'Add Mobile' }}</h3>
+
+      <input type="text" placeholder="Mobile Name" [(ngModel)]="mobile" (input1)="onChange()">
+      <input type="number" placeholder="Price (Rs)" [(ngModel)]="price" (input1)="onChange()">
+      <input type="text" placeholder="RAM" [(ngModel)]="ram" (input1)="onChange()">
+      <input type="text" placeholder="Storage" [(ngModel)]="storage" (input1)="onChange()">
+
+      <div class="modal-actions">
+        <button class="btn-save" (click)="saveMobile()">
+          {{ buttonText }}
+        </button>
+        <button class="btn-cancel" (click)="closePopup()">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+
 </div> -->
 
-<app-subscribers></app-subscribers>
-
-<app-admin></app-admin>
-
+<app-task></app-task>
